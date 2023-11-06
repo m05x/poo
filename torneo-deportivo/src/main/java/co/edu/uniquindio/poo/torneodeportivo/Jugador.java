@@ -13,8 +13,8 @@ import java.time.Period;
 public class Jugador extends Persona {
     private final LocalDate fechaNacimiento;
 
-    public Jugador(String nombre, String apellido, String email, String celular, LocalDate fechaNacimiento) {
-        super(nombre, apellido, email, celular);
+    public Jugador(String nombre, String apellido, String email, String celular,Genero genero, LocalDate fechaNacimiento) {
+        super(nombre, apellido, email, celular,genero);
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -29,5 +29,11 @@ public class Jugador extends Persona {
      */
     public byte calcularEdad(LocalDate fecha){
         return (byte) Period.between(fechaNacimiento, fecha).getYears();
+    }
+
+   
+    
+    public Genero getGenero() {
+         return super.getGenero();
     }
 }

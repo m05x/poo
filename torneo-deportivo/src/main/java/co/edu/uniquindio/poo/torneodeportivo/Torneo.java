@@ -11,7 +11,6 @@ import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
 import static co.edu.uniquindio.poo.util.AssertionUtil.ASSERTION;
@@ -210,12 +209,12 @@ public class Torneo {
         var edadAlInicioTorneo = jugador.calcularEdad(fechaInicio);
         ASSERTION.assertion( limiteEdad == 0 || limiteEdad >= edadAlInicioTorneo , "No se pueden registrar jugadores que excedan el limite de edad del torneo"); 
     }
-
+    
     public static Optional<Jugador> buscarJugadorPorGenero(LinkedList<Equipo> equipos, Genero genero) {
         return equipos.stream()
             .flatMap(equipo -> equipo.getJugadores().stream())
-            .filter(jugador -> jugador.getGenero() == genero)
+            .filter(jugador -> jugador.getGenero().equals(genero))
             .findFirst();
     }
-
+   
 }

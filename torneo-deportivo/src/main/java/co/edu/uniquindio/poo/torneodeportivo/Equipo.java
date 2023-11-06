@@ -9,13 +9,17 @@ package co.edu.uniquindio.poo.torneodeportivo;
 
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
+import java.util.ArrayList;
 
 import static co.edu.uniquindio.poo.util.AssertionUtil.ASSERTION;
 
 public record Equipo(String nombre,Persona representante,Collection<Jugador> jugadores) {
     public Equipo{
+        
+
         ASSERTION.assertion( nombre != null && !nombre.isBlank() , "El nombre es requerido");
         ASSERTION.assertion( representante != null , "El representante es requerido");
     }
@@ -52,4 +56,10 @@ public record Equipo(String nombre,Persona representante,Collection<Jugador> jug
         boolean existeJugador = buscarJugador(jugador).isPresent();
         ASSERTION.assertion( !existeJugador,"El jugador ya esta registrado");
     }
+
+    public List<Jugador> getJugadores() {
+        return new ArrayList<>(jugadores);
+    }
+
+
 }
