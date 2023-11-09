@@ -33,7 +33,12 @@ public class Jugador extends Persona {
         return (byte) Period.between(fechaNacimiento, fecha).getYears();
     }
 
-   
+    public void setGenero(Genero genero) {
+        if (this.genero != null) {
+            throw new IllegalArgumentException("El jugador ya tiene un género asignado");
+        }
+        this.genero = genero;
+    }
     
     public Genero getGenero() {
          return this.genero;

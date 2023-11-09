@@ -25,7 +25,7 @@ public class Torneo {
     private final int valorInscripcion;
     private final TipoTorneo tipoTorneo;
     private final Collection<Equipo> equipos;
-    private final Genero genero;
+    private  Genero genero;
     public Torneo(String nombre, LocalDate fechaInicio,
             LocalDate fechaInicioInscripciones,
             LocalDate fechaCierreInscripciones, byte numeroParticipantes,
@@ -217,5 +217,11 @@ public class Torneo {
             .findFirst();
             
     }
-   
+    
+    public void setGenero(Genero genero) {
+        if (genero == null) {
+            throw new IllegalArgumentException("El género no puede ser nulo");
+        }
+        this.genero = genero;
+    }
 }

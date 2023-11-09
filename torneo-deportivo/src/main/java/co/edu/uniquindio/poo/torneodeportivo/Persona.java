@@ -37,4 +37,10 @@ public class Persona {
     public Genero getGenero() {
         return genero;
     }
+
+    public void setGenero(Genero genero) {
+        if (this.genero != null) {
+            throw new IllegalArgumentException("La persona ya tiene un género asignado");
+        }
+    }
 }
