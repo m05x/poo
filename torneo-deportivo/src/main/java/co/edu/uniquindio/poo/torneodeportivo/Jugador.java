@@ -12,10 +12,12 @@ import java.time.Period;
 
 public class Jugador extends Persona {
     private final LocalDate fechaNacimiento;
+    private Genero genero;
 
     public Jugador(String nombre, String apellido, String email, String celular,Genero genero, LocalDate fechaNacimiento) {
-        super(nombre, apellido, email, celular,genero);
+        super(nombre, apellido, email, celular, genero);
         this.fechaNacimiento = fechaNacimiento;
+        this.genero = genero;
     }
 
     public LocalDate getFechaNacimiento() {
@@ -34,6 +36,6 @@ public class Jugador extends Persona {
    
     
     public Genero getGenero() {
-         return super.getGenero();
+         return this.genero;
     }
 }
