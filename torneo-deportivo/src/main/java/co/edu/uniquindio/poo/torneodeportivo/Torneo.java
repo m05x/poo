@@ -215,6 +215,7 @@ public class Torneo {
             .flatMap(equipo -> equipo.getJugadores().stream())
             .filter(jugador -> jugador.getGenero().equals(genero))
             .findFirst();
+            
     }
    
 }
