@@ -70,7 +70,7 @@ public class GeneroTest {
         LOG.info("Fin de prueba de Genero de Persona");
     }
 
-    public class PersonaTest {
+
     
         @Test
         public void testUnSoloGeneroPorPersona() {
@@ -89,7 +89,7 @@ public class GeneroTest {
             LOG.info("Fin de prueba que solo permite un GeneroPorPersona");
         }
 
-    }
+    
 
     
 }
