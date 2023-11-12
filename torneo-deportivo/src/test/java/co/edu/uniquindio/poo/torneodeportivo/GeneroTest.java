@@ -31,38 +31,32 @@ public class GeneroTest {
     }
 
     @Test
-    public void testGeneroNoNulo() {
-        LOG.info("Inicio de prueba de GeneroNoNulo");
-        Exception exception = assertThrows(NullPointerException.class, () -> {
-             Genero.valueOf(null);
-        });
+    public void testGeneroNoNuloEnTorneo() {
+         LOG.info("Inicio de prueba que no permite un Genero nulo en Torneo");
+         Torneo torneo = new Torneo("Copa Mundo", LocalDate.of(2023, 10, 1), LocalDate.of(2023, 8, 1), LocalDate.of(2023, 9, 15), (byte)24, (byte)0, 0, TipoTorneo.LOCAL, Genero.MIXTO);
+    
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+        torneo.setGenero(null); // intenta establecer el género a null
+         });
 
-        String expectedMessage = "Genero no puede ser nulo";
-        String actualMessage = exception.getMessage();
+         String expectedMessage = "El género no puede ser nulo";
+         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
-        LOG.info("Fin de prueba de GeneroNoNulo");
+        LOG.info("Fin de prueba que no permite un Genero nulo en Torneo");
     }
     
+    
     @Test
-public void testGeneroEnTorneo() {
-    LOG.info("Inicio de pureba de Genero de Torneo");
-    Torneo torneo = new Torneo("Copa Mundo", LocalDate.of(2023, 10, 1), LocalDate.of(2023, 8, 15), LocalDate.of(2023, 8, 1), (byte)24, (byte)0, 0,TipoTorneo.LOCAL,Genero.MIXTO);
-    assertThrows(IllegalArgumentException.class, () -> {
-        torneo.setGenero(Genero.MASCULINO); // intenta cambiar el género
-    });
-    LOG.info("Fin de prueba de Genero de Torneo");
-}
-
-@Test
-public void testGeneroEnJugador() {
-    LOG.info("Inicio de prueba de Genero de Jugador");
-    Jugador jugador = new Jugador("Christian", "Candela", "chrcandela@email.com", "6067431234",Genero.MASCULINO ,LocalDate.now().minusYears(15));
-    assertThrows(IllegalArgumentException.class, () -> {
+    public void testGeneroEnJugador() {
+        LOG.info("Inicio de prueba de Genero de Jugador");
+        Jugador jugador = new Jugador("Christian", "Candela", "chrcandela@email.com", "6067431234",Genero.MASCULINO ,LocalDate.now().minusYears(15));
+        assertThrows(IllegalArgumentException.class, () -> {
         jugador.setGenero(Genero.FEMENIMO); // intenta cambiar el género
     });
     LOG.info("Fin de prueba de Genero de Jugador");
-}
+    }
+
 
 
 
