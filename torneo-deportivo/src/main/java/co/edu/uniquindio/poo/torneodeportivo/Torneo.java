@@ -26,6 +26,8 @@ public class Torneo {
     private final TipoTorneo tipoTorneo;
     private final Collection<Equipo> equipos;
     private  Genero genero;
+    private final Collection<Juez> jueces;
+
     public Torneo(String nombre, LocalDate fechaInicio,
             LocalDate fechaInicioInscripciones,
             LocalDate fechaCierreInscripciones, byte numeroParticipantes,
@@ -51,6 +53,7 @@ public class Torneo {
         this.tipoTorneo = tipoTorneo;
         this.equipos = new LinkedList<>();
         this.genero=genero;
+        this.jueces = new LinkedList<>();
     }
 
     public String getNombre() {
@@ -121,6 +124,16 @@ public class Torneo {
         equipos.add(equipo);
     }
 
+    public void registrarJuez(Juez juez) {
+        validarJuezExiste(juez);
+        jueces.add(juez);
+    }
+
+    public void validarJuezExiste(Juez juez) {
+        boolean existeJuez = buscarJuezPorLicencia(juez.getLicencia()).isPresent();
+        ASSERTION.assertion( !existeJuez,"El juez ya esta registrado");
+    }
+
     /**
      * Valida que las inscripciones del torneo esten abiertas, en caso de no estarlo genera un assertion error.
      */
@@ -155,6 +168,10 @@ public class Torneo {
         return equipos.stream().filter(condicion).findAny();
     }
 
+    public Optional<Juez> buscarJuezPorLicencia(String licencia) {
+        Predicate<Juez> condicion = juez->juez.getLicencia().equals(licencia);
+        return jueces.stream().filter(condicion).findAny();
+    }
     /**
      * Permite registrar un jugador en el equipo siempre y cuando este dentro de las fechas validas de registro, 
      * no exista ya un jugador registrado con el mismo nombre y apellido y el jugador no exceda el limite de edad del torneo.
