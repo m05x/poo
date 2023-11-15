@@ -239,6 +239,6 @@ public class Torneo {
         if (genero == null) {
             throw new IllegalArgumentException("El género no puede ser nulo");
         }
-        this.genero = genero;
+        
     }
 }

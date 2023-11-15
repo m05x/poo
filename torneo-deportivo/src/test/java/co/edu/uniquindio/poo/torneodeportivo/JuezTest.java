@@ -32,6 +32,16 @@ public class JuezTest {
         LOG.info("Fin de prueba licencia no repetida...");
     }
     
+    @Test
+    public void testLicenciaNoNula() {
+        LOG.info("Inicio de prueba licencia no nula...");
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Juez("Juan", "Perez","juanperez01@gmail.com","3101234567",Genero.MASCULINO,null); // intenta crear un juez con licencia nula
+        });
+
+        LOG.info("Fin de prueba licencia no nula...");
+    }
+    
 }
     
 
