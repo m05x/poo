@@ -40,6 +40,7 @@ public class TorneoTest {
         assertEquals((byte)0,torneo.getLimiteEdad());
         assertEquals(0,torneo.getValorInscripcion());
         assertEquals(TipoTorneo.LOCAL,torneo.getTipoTorneo());
+        assertEquals(Genero.MIXTO,torneo.getGenero());
         LOG.info("Fin de prueba datos completos...");
     }
 

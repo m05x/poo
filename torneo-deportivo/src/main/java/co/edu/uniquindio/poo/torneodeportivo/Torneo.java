@@ -236,9 +236,7 @@ public class Torneo {
     }
     
     public void setGenero(Genero genero) {
-        if (genero == null) {
-            throw new IllegalArgumentException("El género no puede ser nulo");
-        }
-        
+    assert genero != null;
+    this.genero = genero;
     }
 }
