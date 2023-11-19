@@ -34,9 +34,6 @@ public class Torneo {
             byte limiteEdad, int valorInscripcion,TipoTorneo tipoTorneo,Genero genero) {
         
         ASSERTION.assertion( nombre != null , "El nombre es requerido");
-        
-        
-        
         ASSERTION.assertion( numeroParticipantes >= 0, "El número de participantes no puede ser negativo");
         ASSERTION.assertion( limiteEdad >= 0,"El limite de edad no puede ser negativo");
         ASSERTION.assertion( valorInscripcion >= 0,"El valor de la inscripción no puede ser negativo");
