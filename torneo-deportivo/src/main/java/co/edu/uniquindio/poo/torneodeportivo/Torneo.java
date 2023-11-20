@@ -91,6 +91,8 @@ public class Torneo {
      public Genero getGenero() {
         return genero;
     }
+     public Collection<Juez> getJueces() {
+        return Collections.unmodifiableCollection(jueces);}
 
     public void setFechaInicio(LocalDate fechaInicio) {
         ASSERTION.assertion( fechaInicio != null , "La fecha de inicio es requerida");

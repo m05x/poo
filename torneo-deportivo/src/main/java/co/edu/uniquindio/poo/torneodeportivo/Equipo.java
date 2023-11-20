@@ -27,6 +27,10 @@ public record Equipo(String nombre,Persona representante,Collection<Jugador> jug
     public Equipo(String nombre,Persona representante){
         this(nombre,representante,new LinkedList<>());
     }
+    
+    public String getNombre() {
+        return nombre;
+    }
 
     /**
      * Permite registrar un jugador en un equipo siempre y cuando no exista ya un jugador registrado en el equipo con el mismo nombre y apellido
