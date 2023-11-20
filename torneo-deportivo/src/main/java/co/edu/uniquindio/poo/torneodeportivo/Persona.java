@@ -11,6 +11,7 @@ public class Persona {
         ASSERTION.assertion( apellido != null && !apellido.isBlank() , "El apellido es requerido");
         ASSERTION.assertion( celular != null && !celular.isBlank() , "El celular es requerido");
         ASSERTION.assertion( email != null && !email.isBlank() , "El email es requerido");
+        ASSERTION.assertion( genero != null , "El género es requerido");    
         
         this.nombre = nombre;
         this.apellido = apellido;
@@ -39,8 +40,6 @@ public class Persona {
     }
 
     public void setGenero(Genero genero) {
-        if (this.genero != null) {
-            throw new IllegalArgumentException("La persona ya tiene un género asignado");
-        }
+        ASSERTION.assertion(genero != null, "El género es requerido");
     }
 }

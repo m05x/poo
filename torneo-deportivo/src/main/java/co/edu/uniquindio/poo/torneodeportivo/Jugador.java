@@ -34,9 +34,7 @@ public class Jugador extends Persona {
     }
 
     public void setGenero(Genero genero) {
-        if (this.genero != null) {
-            throw new IllegalArgumentException("El jugador ya tiene un género asignado");
-        }
+    assert genero != null : "El género es requerido";
         this.genero = genero;
     }
     
