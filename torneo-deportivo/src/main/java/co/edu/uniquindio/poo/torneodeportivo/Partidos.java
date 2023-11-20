@@ -61,7 +61,7 @@ public class Partidos {
     public int getGolesLocal() {
         return golesLocal;
     }
-
+    
     public int getGolesVisitante() {
         return golesVisitante;
     }
@@ -69,6 +69,9 @@ public class Partidos {
     public EstadoPartido getEstadoPartido() {
         return estadoPartido;
     }
+
     
-    
+
+
+
 }

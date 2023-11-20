@@ -60,6 +60,6 @@ public record Equipo(String nombre,Persona representante,Collection<Jugador> jug
     public List<Jugador> getJugadores() {
         return new ArrayList<>(jugadores);
     }
-
+    
 
 }
